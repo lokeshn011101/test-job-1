@@ -1,5 +1,6 @@
 FROM python:3.7
+COPY ./requirements.txt /tmp/
+RUN pip install -r /tmp/requirements.txt
 COPY . ./app
 WORKDIR /app
-RUN pip install -r ./train_requirements.txt
-CMD python train.py
+ENTRYPOINT python train.py
